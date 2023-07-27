@@ -1,23 +1,25 @@
-header{
-    margin: 0%;
-    padding: 1px; 
-    background-color:  #001b22;
-    font-weight:normal;
-    width: 100%;
-}
-body {
-    margin: 0px;
-    padding: 0px;
-    font-family: Arial, sans-serif;
-    width: 100%;
-    font-weight: normal;
-  }
-footer{
+header {
   margin: 0%;
   padding: 1px;
-  color: #ffffff; 
   background-color: #001b22;
-  font-weight:normal;
+  font-weight: normal;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  font-weight: normal;
+}
+
+footer {
+  margin: 0%;
+  padding: 1px;
+  color: #ffffff;
+  background-color: #001b22;
+  font-weight: normal;
   width: 100%;
 }
 
@@ -43,7 +45,10 @@ footer{
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
+  .topnav a:not(:first-child) {
+    display: none;
+  }
+
   .topnav a.icon {
     float: right;
     display: block;
@@ -51,12 +56,16 @@ footer{
 }
 
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
+
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
   }
+
   .topnav.responsive a {
     float: none;
     display: block;
@@ -64,42 +73,50 @@ footer{
   }
 }
 
-
-
+.linkbox {
+  width: 70%;
+  font-size: small;
+  padding-right: 7px;
+  border-radius: 20px;
+  margin: 4px;
+  background-color: white;
+  text-align: left;
+}
 
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-  l{
-    border-style: solid;
-    border-radius: 50px;
-    border-width: 2.5px;
-    padding: 3px;
-    margin: 5px;
-    color: #005e75;
-    box-shadow: 0 3px 6px 0 #005e75;
+l {
+  border-style: solid;
+  border-radius: 50px;
+  border-width: 2.5px;
+  padding: 3px;
+  margin: 5px;
+  color: #005e75;
+  box-shadow: 0 3px 6px 0 #005e75;
 }
 
 .grid-container {
-    display: grid;
-    width: 98%;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-    margin: 3px;
-    text-align: center;
-  }
-  
-  .grid-item {
-    padding: 15px;
-  }
+  display: grid;
+  width: 98%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  margin: 3px;
+  text-align: center;
+}
 
-h4{
+.grid-item {
+  padding: 15px;
+}
+
+h4 {
   text-align: left;
   font-weight: normal;
 }
-h2{
+
+h2 {
   text-align: left;
   padding-left: 10px;
 
