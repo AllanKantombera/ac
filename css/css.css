@@ -35,7 +35,7 @@ footer {
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 10px;
+  padding: 14px 14px;
   text-decoration: none;
   font-size: 15px;
 }
@@ -78,8 +78,8 @@ footer {
   font-size: 15px;
   padding-right: 7px;
   border-radius: 20px;
-  margin: 4px;
-  padding: 5px;
+  margin: 2px;
+  padding-left: 6px;
   background-color: white;
   text-align: left;
 }
@@ -94,7 +94,7 @@ l {
   border-radius: 50px;
   border-width: 2.5px;
   padding: 3px;
-  margin: 2px;
+  margin: 1px;
   color: #005e75;
   box-shadow: 0 3px 6px 0 #005e75;
 }
