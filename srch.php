@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>afriCarsHub</title>
     <meta charset="UTF-8">
@@ -9,7 +10,7 @@
 <header>
 
     <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">
+        <a href="index.php" class="active">
             <l>afriCarsHub</l>
         </a>
         <a href="carsreviews.php">
@@ -54,7 +55,7 @@
         </div>
 
         <div class="grid-item">
-            <h2 style="color:white"> WE ARE, AfriCars_Hub.<br>
+            <h2> WE ARE, AfriCars_Hub.<br>
                 "Discover The Ultimate Car Service Network"<br>
                 Find different Car services providers near you, faster and easily.
             </h2>
@@ -64,7 +65,7 @@
 
     <form method="GET" action="srch.php" style="display: flex; margin-bottom: 5px;">
         <input type="text" name="search" placeholder="Enter search term">
-        <input type="submit" value="Search" style="border-radius: 20px;">
+        <input type="submit" value="Search" style="border-radius: 20px; background-color: white;">
     </form>
 
 
@@ -74,8 +75,46 @@
     <?php
     require_once 'php/conn.php';
     ?>
-<h3>SEARCH RESULTS</H3>
-<div style="margin: 4%;">
+    <h3>SEARCH RESULTS</H3>
+    <div style="margin: 4%;">
+
+        <?php
+
+// Process the search if the form is submitted
+if (isset($_GET['search'])) {
+    $searchTerm = mysqli_real_escape_string($conn, $_GET['search']); // Escape user input
+
+    // List of table names to search
+    $tableNames = array("car_hire", "car_dealers", "transport_services", "garages_and_mechanics", "autoparts_shops", "cars_reviews", "news", "articles");
+
+    foreach ($tableNames as $tableName) {
+        $query = "SELECT * FROM $tableName WHERE description LIKE '%$searchTerm%'";
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                //echo '<p><img src="' . $row["logo"];
+                //echo '"width="120px" style="margin: 4px; border: solid; border-radius: 10px; float: left;">';
+                //echo "<strong>Name:</strong> " . $row['names']. "<br>";
+                echo "<strong>Description</strong> " . $row['description'] . "</p><br>";
+            }
+        } else {
+            echo "Error executing query: " . mysqli_error($conn);
+        }
+    
+      
+    }
+}
+
+
+
+?>
+
+
+
+
+
+        <!--
     <?php
     // Process the search if the form is submitted
     if (isset($_GET['search'])) {
@@ -102,9 +141,12 @@
         }
     }
     ?>
-</div>
+-->
 
-<script src="js/main.js"></script>
+
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 
 <footer><br>
@@ -133,4 +175,5 @@
         </div>
     </div>
 </footer>
+
 </html>

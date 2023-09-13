@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <header>
-
     <div class="topnav" id="myTopnav">
         <a href="#home" class="active">
             <l>afriCarsHub</l>
@@ -52,7 +51,7 @@
         </div>
 
         <div class="grid-item">
-            <h2 style="color:white"> WE ARE, AfriCars_Hub.<br>
+            <h2> WE ARE, AfriCars_Hub.<br>
                 "Discover The Ultimate Car Service Network"<br>
                 Find different Car services providers near you, faster and easily.
             </h2>
@@ -65,7 +64,6 @@
         <input type="submit" value="Search" style="border-radius: 20px;">
     </form>
 
-
 </header>
 
 <body>
@@ -73,10 +71,9 @@
     require_once 'php/conn.php';
     ?>
 
-
     <div class="grid-container">
         <div class="card1"><br>
-            <img src="images/AfriCarsHub logo2.jpg" width="140px"><br>
+            <img src="images/AfriCarsHub logo2.png" width="100px"><br>
 
             <h3>
                 Did You Know that you can just <i>Search</i> a car part and instantly find where you can buy it?<br>
@@ -85,12 +82,11 @@
             </h3>
         </div>
 
-
         <div class="card1">
             <?php
             //ads php
             //ID select       
-            $id = 1;
+            $id = 2;
 
             // SQL query to retrieve data by ID
             $sql = "SELECT * FROM ads WHERE id = $id";
@@ -112,7 +108,7 @@
         <?php
             //ads php
             //ID select       
-            $id = 2;
+            $id = 1;
 
             // SQL query to retrieve data by ID
             $sql = "SELECT * FROM ads WHERE id = $id";
@@ -247,7 +243,7 @@
                 <img src="images/icon/fbicon.jpg" width="40px">
                 <img src="images/icon/instaicon.jpg" width="40px">
                 <img src="images/icon/lnicon.jpg" width="40px">
-                <img src="images/icon/instaicon.jpg" width="40px">
+                <img src="images/icon/twicon.jpg" width="40px">
             </div>
         </div>
         <div class="grid-item">

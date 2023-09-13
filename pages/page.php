@@ -47,10 +47,10 @@
             if ($result->num_rows > 0) {
                 // Output data of each row
                 while($row = $result->fetch_assoc()) {
-                    echo '<img src="';
+                    echo '<img src="../';
                     echo $row["logo"];
                     echo '"width="100px" style="margin: 20px; border: solid; border-radius: 20px;">';
-                    echo '<h2>' . $row["name"] . '</h2>';
+                    echo '<h2>' . $row["names"] . '</h2>';
                     echo '<h4>' . $row["description"] . '</h4>';
 
                     echo '    <div class="grid-container1"><div class="grid-item1"><h4>ABOUT US</h4>';
