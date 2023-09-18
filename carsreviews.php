@@ -127,7 +127,11 @@
             </div>
         </div>
         <div class="grid-item">
-            About Us
+            ABOUT US<br>
+            Welcome to Africars Hub, your premier destination for all things automotive in Africa.
+             We are your one-stop online platform dedicated to revolutionizing the way you discover,
+              connect with, and access a wide range of automotive services and products such as car dealers,
+               car hire services, mechanics & garages, auto-parts shops and more.(we are currently operating in Malawi only).
         </div>
         <div class="grid-item">
             Contacts Us
