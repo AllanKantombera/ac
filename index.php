@@ -9,7 +9,7 @@
 <header>
     <div class="topnav" id="myTopnav">
         <a href="#home" class="active">
-            <l>afriCarsHub</l>
+            <l style="color:  #0097bd; font-weight: bolder;">afriCarsHub</l>
         </a>
         <a href="carsreviews.php">
             <l>CAR REVIEWS</l>
@@ -60,7 +60,7 @@
     </div>
 
     <form method="GET" action="srch.php" style="display: flex; margin-bottom: 5px;">
-        <input type="text" name="search" placeholder="Enter search term">
+        <input type="text" name="search" placeholder="Enter search term" style="padding: 4px;">
         <input type="submit" value="Search" style="border-radius: 20px;">
     </form>
 
@@ -182,7 +182,6 @@
             the needs of the African consumer,
 
         </div>
-
         <div class="card1">
             <h3>CAR HIRERS</h3>
             <img src="images/rental.jpg" style="width: 60%;"><br>
@@ -190,7 +189,6 @@
             <i>Discover More Auto-Parts shops near you Faster and Easy</i>
         </div>
     </div>
-
     <div class="grid-container">
         <div class="card1">
             <h3>GARAGES & MECHANICS</h3>
@@ -230,12 +228,9 @@
             <i>Discover More Auto-Parts shops near you Faster and Easy</i>
         </div>
     </div>
-
     <script src="js/main.js"></script>
 </body>
-
 <footer><br>
-
     <div class="grid-container">
         <div class="grid-item">
             Follow Us On<br>
@@ -259,33 +254,26 @@
             Copyrights
         </div>
     </div>
-
 </footer>
-
 </html>
 <!-- //GRID TEMPLATE
 <div class="grid-container">
     <div class="grid-item">
-
     </div>
-    <div class="grid-item">
-  
+    <div class="grid-item">  
     </div>
 </div>
 -->
-
 
 <!--
     //php
         <?php
         require_once 'php/conn.php';
       ?>
-
       <?php
         // SQL query to retrieve data from the database
         $sql = "SELECT * FROM myportfolio";
         $result = $conn->query($sql);
-    
         if ($result->num_rows > 0) {
             // Output data of each row
             while($row = $result->fetch_assoc()) {
@@ -295,7 +283,6 @@
             echo "0 results";
         }
         ?>
-
         <?php
             //ID select       
             // The ID you want to retrieve

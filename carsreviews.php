@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>afriCarsHub</title>
     <meta charset="UTF-8">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <header>
-
     <div class="topnav" id="myTopnav">
         <a href="index.php" class="active">
             <l>HOME</l>
@@ -48,28 +46,21 @@
                     <l>Car Hires</l>
                 </a><br><br>
             </div>
-
-
         </div>
-
         <div class="grid-item">
             <h2 style="color:white"> WE ARE, AfriCars_Hub.<br>
                 "Discover The Ultimate Car Service Network"<br>
                 Find different Car services providers near you, faster and easily.
                 </h2>
-
         </div>
     </div>
-
  
     <form style="display: flex; margin-bottom: 5px;">
         <input type="text" placeholder="Search Car Reviews..." name="search">
         <button type="submit">Search</button>
     </form>
 
-
 </header>
-
 <body>
 <h2><b>CAR REVIEWS</b></h2>
 <div class="contentbox">
