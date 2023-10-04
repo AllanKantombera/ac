@@ -137,5 +137,4 @@ if (isset($_GET['search'])) {
         </div>
     </div>
 </footer>
-
 </html>

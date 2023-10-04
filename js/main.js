@@ -6,3 +6,15 @@ function myFunction() {
     x.className = "topnav";
   }
 }
+
+function validateForm() {
+  var searchInput = document.getElementById("search").value;
+  
+  if (searchInput.trim() === "") {
+      alert("Please enter a search term.");
+      return false; // Prevent form submission
+  }
+  
+  // If the input is not empty, allow the form submission
+  return true;
+}
