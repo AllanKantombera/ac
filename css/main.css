@@ -154,6 +154,7 @@ l {
   width: 100%;
   font-size: 15px;
   padding-left: 6px;
+  border-radius: 5px;
   background-color: white;
   box-shadow: 0 20px 20px  #000000;
   padding: 4px;

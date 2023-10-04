@@ -75,11 +75,11 @@
     <?php
     require_once 'php/conn.php';
     ?>
+
     <h3>SEARCH RESULTS</H3>
     <div style="margin: 4%;">
 
-        <?php
-
+    <?php
 // Process the search if the form is submitted
 if (isset($_GET['search'])) {
     $searchTerm = mysqli_real_escape_string($conn, $_GET['search']); // Escape user input
@@ -88,64 +88,26 @@ if (isset($_GET['search'])) {
     $tableNames = array("car_hire", "car_dealers", "transport_services", "garages_and_mechanics", "autoparts_shops", "cars_reviews", "news", "articles");
 
     foreach ($tableNames as $tableName) {
-        $query = "SELECT * FROM $tableName WHERE description LIKE '%$searchTerm%'";
+        $query = "SELECT * FROM $tableName WHERE tags LIKE '%$searchTerm%'";
         $result = mysqli_query($conn, $query);
 
         if ($result) {
             while ($row = mysqli_fetch_assoc($result)) {
-                //echo '<p><img src="' . $row["logo"];
-                //echo '"width="120px" style="margin: 4px; border: solid; border-radius: 10px; float: left;">';
-                //echo "<strong>Name:</strong> " . $row['names']. "<br>";
-                echo "<strong>Description</strong> " . $row['description'] . "</p><br>";
+                echo '<h4><img src=" '. $row["logo"] . '"width="80px" style="border: solid; border-radius: 8px;"><br>';
+                echo "<b>Name: </b>" . $row['names']. "<br>";
+                echo "<b>Description: </b>" . $row['description'] . "<br>";
+                echo "<b>Location: </b>" . $row['location'] . "</h4><br>";
             }
         } else {
             echo "Error executing query: " . mysqli_error($conn);
         }
-    
-      
     }
 }
 
 
 
 ?>
-
-
-
-
-
-        <!--
-    <?php
-    // Process the search if the form is submitted
-    if (isset($_GET['search'])) {
-        $searchTerm = mysqli_real_escape_string($conn, $_GET['search']); // Escape user input
-        
-        $query = "SELECT car_dealers.*
-                  FROM car_dealers
-                  WHERE car_dealers.description LIKE '%$searchTerm%'";
-
-        $result = mysqli_query($conn, $query);
-
-        if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<p><img src="' . $row["logo"];
-                echo '"width="120px" style="margin: 4px; border: solid; border-radius: 10px; float: left;">';
-                echo "<strong>Name:</strong> " . $row['names']. "<br>";
-                echo "<strong>Description</strong> " . $row['description'] . "</p><br>";
-            }
-        } else {
-            echo "Error executing query: " . mysqli_error($conn);
-        }
-        if($result->num_rows == 0){
-            echo 'results 0';
-        }
-    }
-    ?>
--->
-
-
     </div>
-
     <script src="js/main.js"></script>
 </body>
 

@@ -59,9 +59,11 @@
                 Find different Car services providers near you, faster and easily.
             </h2>
 
-        </div>
-    </div>
 
+
+        </div>
+  
+    </div>
     <form method="GET" action="srch.php" style="display: flex; margin-bottom: 5px;">
         <input type="text" name="search" placeholder="Enter search term" style="padding: 4px;">
         <input type="submit" value="Search" style="border-radius: 20px;">
@@ -126,7 +128,6 @@
                 echo "0 results";
             }
             ?>
-
            
         </div>
         <div class="card1">
@@ -152,6 +153,10 @@
 
         </div>
     </div>
+
+
+
+
 
     <div class="grid-container">
         <div class="card1">
@@ -208,7 +213,7 @@
         <div class="card1">
             <h3>CAR DEALERS</h3>
             <img src="images/mobius3.jpg" width="80%">
-
+            
             <h4><b>MOBIUS MOTORS</b>Mobius Motors is a manufacturer of cars intended for its customers in Africa. The
                 company's cars are designed,
                 manufactured, and sold as highly durable and functional, yet affordable vehicles. These are designed

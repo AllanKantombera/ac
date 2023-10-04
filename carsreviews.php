@@ -54,7 +54,7 @@
                 </h2>
         </div>
     </div>
- 
+
     <form style="display: flex; margin-bottom: 5px;">
         <input type="text" placeholder="Search Car Reviews..." name="search">
         <button type="submit">Search</button>
