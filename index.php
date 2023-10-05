@@ -63,8 +63,6 @@
      
     </div>
 
- 
-
 </header>
 
 <body>
@@ -85,6 +83,7 @@
   
        
         <div class="card1">
+
         <?php
             //ads php
             //ID select       
@@ -100,19 +99,33 @@
                     echo "" . $row["imageurl"]. "<br>" . $row["ad_url"]. "<br>";
                 }
             } else {
-                echo "0 results";
+                echo "null";
             }
             ?>
-           
         </div>
 
         <div class="card1">
             <h4><b>CAR REVIEWS</b>
-            <img src="images/Renault.jpg" width="80%">
-            <b>MOBIUS MOTORS</b>Mobius Motors is a manufacturer of cars intended for its customers in Africa. The
-                company's cars are designed,
-                manufactured, and sold as highly durable and functional, yet affordable vehicles. These are
-                designedaround
+
+                <?php
+                //ads php
+                //ID select       
+                $id = 1;
+    
+                // SQL query to retrieve data by ID
+                $sql = "SELECT * FROM cars_reviews WHERE id = $id";
+                $result = $conn->query($sql);
+    
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
+                        echo $row["car_model"] . "<br>" .$row["intro"]. "<br>";
+                    }
+                } else {
+                    echo "null";
+                }
+                ?>
         </div>
 
         <div class="card1">
@@ -138,44 +151,97 @@
 
         </div>
     </div>
-
+    <br>
     <div class="grid-container">
         <div class="card1">
-            <h3>NEWS/ARTICLES</h3>
-            <img src="images/bmw2.png" width="80%">
-            <h4>
-                <b>Meet Mureza, Africa’s first black-owned OEM</b><br>
-                Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-                company.
-                Sales of its Prim8 (say: “primate”)
-                <i>read more</i>
-            </h4>
+            <?php
+            //ads php
+            //ID select       
+            $id = 1;
+
+            // SQL query to retrieve data by ID
+            $sql = "SELECT * FROM cars_reviews WHERE id = $id";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
+                    echo $row["car_model"] . "<br>" .$row["intro"]. "<br>";
+                }
+            } else {
+                echo "null";
+            }
+            ?>
 
         </div>
         <div class="card1">
             <h4><b>CAR REVIEWS</b>
-            <img src="images/Renault.jpg" width="80%">
-            <b>MOBIUS MOTORS</b>Mobius Motors is a manufacturer of cars intended for its customers in Africa. The
-                company's cars are designed,
-                manufactured, and sold as highly durable and functional, yet affordable vehicles. These are
-                designedaround
+                <?php
+                //ads php
+                //ID select       
+                $id = 2;
+    
+                // SQL query to retrieve data by ID
+                $sql = "SELECT * FROM cars_reviews WHERE id = $id";
+                $result = $conn->query($sql);
+    
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
+                        echo $row["car_model"] . "<br>" .$row["intro"]. "<br>";
+                    }
+                } else {
+                    echo "null";
+                }
+                ?>
         </div>
         <div class="card1">
-            <h3>AD</h3>
-            <img src="images/rental.jpg" style="width: 60%;"><br>
-            Visit<a href="www.axame.com"> Auto HUB</a><br>
-            <i>Discover More Auto-Parts shops near you Faster and Easy</i>
+
+
+            <?php
+            //ads php
+            //ID select       
+            $id = 1;
+
+            // SQL query to retrieve data by ID
+            $sql = "SELECT * FROM ads WHERE id = $id";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo "" . $row["imageurl"]. "<br>" . $row["ad_url"]. "<br>";
+                }
+            } else {
+                echo "null";
+            }
+            ?>
         </div>
 
         <div class="card1">
             <h3>NEWS/ARTICLES</h3>
-            <img src="images/maserati2.jpg" style="width: 80%;"><br>
-            otors is a manufacturer of cars intended for its customers in Africa. The
-            company's cars are designed,
-            manufactured, and sold as highly durable and functional, yet affordable vehicles. These are designedaround
-            the needs of the African consumer,
+            <?php
+            //ads php
+            //ID select       
+            $id = 1;
 
-        </div>
+            // SQL query to retrieve data by ID
+            $sql = "SELECT * FROM cars_reviews WHERE id = $id";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
+                    echo $row["car_model"] . "<br>" .$row["intro"]. "<br>";
+                }
+            } else {
+                echo "null";
+            }
+            ?>
+            </div>
   
     </div>
 

@@ -50,6 +50,7 @@
                     echo '<img src="../';
                     echo $row["logo"];
                     echo '"width="100px" style="margin: 20px; border: solid; border-radius: 20px;">';
+                    
                     echo '<h2>' . $row["names"] . '</h2>';
                     echo '<h4>' . $row["description"] . '</h4>';
 
