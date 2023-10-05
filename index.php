@@ -9,16 +9,13 @@
 <header>
     <div class="topnav" id="myTopnav">
         <a href="#home" class="active">
-            <l style="color:  #0097bd; font-weight: bolder;">afriCarsHub</l>
+            <l style="color:  #0097bd; font-weight: bolder;">AFRICARS-HUB</l>
         </a>
         <a href="carsreviews.php">
             <l>CAR REVIEWS</l>
         </a>
-        <a href="news.php">
-            <l>NEWS</l>
-        </a>
         <a href="articles.php">
-            <l>ARTICLES</l>
+            <l>NEWS/ARTICLES</l>
         </a>
         <a href="aboutus.php">
             <l>ABOUT US</l>
@@ -46,7 +43,7 @@
                 <a href="carhires.php">
                     <l>Car Hires</l>
                 </a><br><br>
-                <a href="transportservices.php">
+                <a href="carhires.php">
                     <l>Other Services</l>
                 </a><br><br>
             </div>
@@ -54,18 +51,19 @@
         </div>
 
         <div class="grid-item">
-            <h2> WE ARE, AfriCars_Hub.<br>
-                "Discover The Ultimate Car Service Network"<br>
+            <h2> Welcome to Africars Hub.<br>
+                'The Ultimate Car Service Network'<br>
                 Find different Car services providers near you, faster and easily.
-            </h2>
-
+            </h2><br><br>
+            <form method="GET" action="srch.php" onsubmit="return validateForm();" style="display: flex; margin-bottom: 5px; float: right;">
+                <input type="text" name="search" id="search" placeholder="Enter search term" style="padding: 4px;">
+                <input type="submit" value="Search" style="border-radius: 20px;">
+            </form>
         </div>
-  
+     
     </div>
-    <form method="GET" action="srch.php" style="display: flex; margin-bottom: 5px;">
-        <input type="text" name="search" placeholder="Enter search term" style="padding: 4px;">
-        <input type="submit" value="Search" style="border-radius: 20px;">
-    </form>
+
+ 
 
 </header>
 
@@ -76,7 +74,7 @@
 
     <div class="grid-container">
         <div class="card1"><br>
-            <img src="images/AfriCarsHub logo2.png" width="100px"><br>
+            <img src="images/AfriCarsHub logo2.png" width="150px"><br>
 
             <h3>
                 Did You Know that you can just <i>Search</i> a car part and instantly find where you can buy it?<br>
@@ -84,29 +82,8 @@
                 Faster and Easy!
             </h3>
         </div>
-
-        <div class="card1">
-            <?php
-            //ads php
-            //ID select       
-            $id = 2;
-
-            // SQL query to retrieve data by ID
-            $sql = "SELECT * FROM ads WHERE id = $id";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                // Output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo "" . $row["imageurl"]. "<br>" . $row["ad_url"]. "<br>";
-                }
-            } else {
-                echo "0 results";
-            }
-            ?>
-
-
-        </div>
+  
+       
         <div class="card1">
         <?php
             //ads php
@@ -128,6 +105,16 @@
             ?>
            
         </div>
+
+        <div class="card1">
+            <h4><b>CAR REVIEWS</b>
+            <img src="images/Renault.jpg" width="80%">
+            <b>MOBIUS MOTORS</b>Mobius Motors is a manufacturer of cars intended for its customers in Africa. The
+                company's cars are designed,
+                manufactured, and sold as highly durable and functional, yet affordable vehicles. These are
+                designedaround
+        </div>
+
         <div class="card1">
 
         <?php
@@ -152,13 +139,9 @@
         </div>
     </div>
 
-
-
-
-
     <div class="grid-container">
         <div class="card1">
-            <h3>NEWS</h3>
+            <h3>NEWS/ARTICLES</h3>
             <img src="images/bmw2.png" width="80%">
             <h4>
                 <b>Meet Mureza, Africa’s first black-owned OEM</b><br>
@@ -170,17 +153,22 @@
 
         </div>
         <div class="card1">
-            <h3>CAR REVIEWS</h3>
+            <h4><b>CAR REVIEWS</b>
             <img src="images/Renault.jpg" width="80%">
-
-            <h4><b>MOBIUS MOTORS</b>Mobius Motors is a manufacturer of cars intended for its customers in Africa. The
+            <b>MOBIUS MOTORS</b>Mobius Motors is a manufacturer of cars intended for its customers in Africa. The
                 company's cars are designed,
                 manufactured, and sold as highly durable and functional, yet affordable vehicles. These are
                 designedaround
         </div>
+        <div class="card1">
+            <h3>AD</h3>
+            <img src="images/rental.jpg" style="width: 60%;"><br>
+            Visit<a href="www.axame.com"> Auto HUB</a><br>
+            <i>Discover More Auto-Parts shops near you Faster and Easy</i>
+        </div>
 
         <div class="card1">
-            <h3>ARTICLES</h3>
+            <h3>NEWS/ARTICLES</h3>
             <img src="images/maserati2.jpg" style="width: 80%;"><br>
             otors is a manufacturer of cars intended for its customers in Africa. The
             company's cars are designed,
@@ -188,54 +176,21 @@
             the needs of the African consumer,
 
         </div>
-        <div class="card1">
-            <h3>CAR HIRERS</h3>
-            <img src="images/rental.jpg" style="width: 60%;"><br>
-            Visit<a href="www.axame.com"> Auto HUB</a><br>
-            <i>Discover More Auto-Parts shops near you Faster and Easy</i>
-        </div>
+  
     </div>
-    <div class="grid-container">
-        <div class="card1">
-            <h3>GARAGES & MECHANICS</h3>
-            <img src="images/jaguaree.jpg" width="80%">
-            <h4>
-                <b>Meet Mureza, Africa’s first black-owned OEM</b><br>
-                Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-                company.
-                Sales of its Prim8 (say: “primate”)
-                <i>read more</i>
-            </h4>
 
-        </div>
-        <div class="card1">
-            <h3>CAR DEALERS</h3>
-            <img src="images/mobius3.jpg" width="80%">
-            
-            <h4><b>MOBIUS MOTORS</b>Mobius Motors is a manufacturer of cars intended for its customers in Africa. The
-                company's cars are designed,
-                manufactured, and sold as highly durable and functional, yet affordable vehicles. These are designed
-                aroundthe needs of the African consumer,
-        </div>
 
-        <div class="card1">
-            <h3>TRANSPORTS SERVICES</h3>
-            <img src="images//renaultm.webp" style="width: 80%;"><br>
-            <i>Discover More transport service near you</i>
-            Motors is a manufacturer of cars intended for its customers in Africa. The
-            company's cars are designed,
-            manufactured, and sold as highly durable and functional, yet affordable vehicles. These are designed
-            aroundthe needs of the African consumer,
-        </div>
-        <div class="card1">
-            <h3>AUTO-PARTS SHOPS</h3>
-            <img src="images/CarPartsShop.png" style="width: 60%;"><br>
-            Visit<a href="www.axame.com"> Auto HUB</a><br>
-            <i>Discover More Auto-Parts shops near you Faster and Easy</i>
-        </div>
-    </div>
     <script src="js/main.js"></script>
 </body>
+
+
+
+
+
+
+
+
+
 <footer>
 
     <?php include 'footer.php'; ?>

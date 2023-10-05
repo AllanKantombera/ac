@@ -16,9 +16,6 @@
         <a href="carsreviews.php">
             <l>CAR REVIEWS</l>
         </a>
-        <a href="news.php">
-            <l>NEWS</l>
-        </a>
         <a href="aboutus.php">
             <l>ABOUT US</l>
         </a>
