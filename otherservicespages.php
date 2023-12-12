@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>afriCarsHub</title>
     <meta charset="UTF-8">
@@ -8,11 +9,8 @@
 </head>
 <header>
     <div class="topnav" id="myTopnav">
-        <a href="index.php" class="active">
+        <a href="#home" class="active">
             <l style="color:  #007bff; font-weight: bolder;">AFRICARS-HUB</l>
-        </a>
-        <a href="index.php">
-            <l>HOME</l>
         </a>
         <a href="carreviews.php?id=1">
             <l>CAR REVIEWS</l>
@@ -26,6 +24,7 @@
                 <i class="fa fa-bars" style="color: black; font-size: 15px;">⥫</i>
             </a>
     </div>
+
     <div class="grid-container1">
         <div class="grid-item">
             <div class="linkbox">
@@ -42,21 +41,23 @@
                 <a href="carhires.php">
                     <l>Car Hires</l>
                 </a><br><br>
-                <a href="otherservices.php">
+                <a href="carhires.php">
                     <l>Other Services</l>
                 </a><br><br>
             </div>
+
         </div>
+
         <div class="grid-item">
 
 <img src="images/logo2.png" height="30px" style="border-radius: 0px;">
-            <h2 style="color: black;">Welcome to <b>AfriCars Hub</b>, your All-In-One destination for car-ralated 
+            <h2>Welcome to <b>AfriCars Hub</b>, your All-In-One destination for car-ralated 
                 solutions in africa. "Find what you need <b>easily, faster, Near you!</b>"</h2>
     
             <form method="GET" action="srch.php" onsubmit="return validateForm();"
                 style="display: flex; margin-bottom: 5px; float: right;">
                 <div class="search-container">
-                    <input type="text" name="search" class="search-input" placeholder="search services/products">
+                    <input type="text" name="search" class="search-input" placeholder="Enter search term">
                     <button class="search-button" type="submit" value="Search">Search</button>
                 </div>
             </form>
@@ -66,39 +67,52 @@
 
 </header>
 
-
-
 <body>
 <?php
     require_once 'php/conn.php';
     ?>
 
-<div style="margin: 4%;">
 
-<h2>GARAGES AND MECHANICS</h2>
+            <?php
 
-<?php
-
-        $query = "SELECT * FROM garages_and_mechanics";
-        $result = mysqli_query($conn, $query);
-
-        if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="grid-container2"><div class="searchcard1">';
-                echo '<img src=" '. $row["logo"] . '" height="80px" style="border-style: solid; border-width: 1px; max-width: 100%;"></div>';
-                echo '<div class="searchcard2"><b>' . $row['name']. "</b><br>";
-                echo "<b>About Us: </b>" . $row['description'] . "<br>";
-                echo "<b>Details:</b>" . $row['location'] . "</div></div>";
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
             }
-        } else {
-            echo "Error executing query: " . mysqli_error($conn);
-        }
-?>
-</div>
+
+            $sql = "SELECT * FROM otherservices WHERE id =$id";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo '<img src="';
+                    echo $row["logo"];
+                    echo '"width="100px" style="margin: 20px; border: solid; border-radius: 20px;">';
+                    
+                    echo '<h2>' . $row["names"] . '</h2>';
+                    echo '<h4>' . $row["description"] . '</h4>';
+
+                    echo '    <div class="grid-container1"><div class="grid-item1"><h4>ABOUT US</h4>';
+                    echo '<h4>' . $row["about_us"] . '</h4> </div>';
+                    echo '    <div class="grid-container1"><div class="grid-item1"><h4>CONTATS</h4>';
+                    echo '<h4>' . $row["contacts"] . '</h4> </div></div>';
+                    echo '    <div class="grid-container1"><div class="grid-item1"><h4>LOCATION</h4>';
+                    echo '<h4>' . $row["location"] . '</h4> </div></div>';
+                    echo '</div>';
+                }
+
+                
+            } else {
+                echo "";
+            }
+            ?>
+    
+    <br><br><br> <br><br><br>
 
     <script src="js/main.js"></script>
 </body>
 <footer>
-    <?php include 'footer.php'; ?>
+
+<?php include 'footer.php'; ?>
 </footer>
 </html>

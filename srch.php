@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>afriCarsHub</title>
     <meta charset="UTF-8">
@@ -8,19 +7,18 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <header>
-
     <div class="topnav" id="myTopnav">
         <a href="index.php" class="active">
-            <l>afriCarsHub</l>
+            <l style="color:  #007bff; font-weight: bolder;">AFRICARS-HUB</l>
         </a>
-        <a href="carsreviews.php">
+        <a href="index.php">
+            <l>HOME</l>
+        </a>
+        <a href="carreviews.php?id=1">
             <l>CAR REVIEWS</l>
         </a>
-        <a href="news.php">
-            <l>NEWS</l>
-        </a>
-        <a href="articles.php">
-            <l>ARTICLES</l>
+        <a href="news&articles.php?id=1">
+            <l>NEWS/ARTICLES</l>
         </a>
         <a href="aboutus.php">
             <l>ABOUT US</l>
@@ -28,8 +26,6 @@
                 <i class="fa fa-bars" style="color: black; font-size: 15px;">⥫</i>
             </a>
     </div>
-
-
     <div class="grid-container1">
         <div class="grid-item">
             <div class="linkbox">
@@ -43,33 +39,33 @@
                 <a href="cardealers.php">
                     <l>Car Dealers</l>
                 </a><br><br>
-                <a href="transportservices.php">
-                    <l>Transport Services</l>
-                </a><br><br>
                 <a href="carhires.php">
                     <l>Car Hires</l>
                 </a><br><br>
+                <a href="otherservices.php">
+                    <l>Other Services</l>
+                </a><br><br>
             </div>
-
-
         </div>
-
         <div class="grid-item">
-            <h2> WE ARE, AfriCars_Hub.<br>
-                "Discover The Ultimate Car Service Network"<br>
-                Find different Car services providers near you, faster and easily.
-            </h2>
 
+<img src="images/logo2.png" height="30px" style="border-radius: 0px;">
+            <h2 style="color: black;">Welcome to <b>AfriCars Hub</b>, your All-In-One destination for car-ralated 
+                solutions in africa. "Find what you need <b>easily, faster, Near you!</b>"</h2>
+    
+            <form method="GET" action="srch.php" onsubmit="return validateForm();"
+                style="display: flex; margin-bottom: 5px; float: right;">
+                <div class="search-container">
+                    <input type="text" name="search" class="search-input" placeholder="search services/products">
+                    <button class="search-button" type="submit" value="Search">Search</button>
+                </div>
+            </form>
         </div>
+
     </div>
 
-    <form method="GET" action="srch.php" style="display: flex; margin-bottom: 5px;">
-        <input type="text" name="search" placeholder="Enter search term">
-        <input type="submit" value="Search" style="border-radius: 20px; background-color: white;">
-    </form>
-
-
 </header>
+
 
 <body>
     <?php
@@ -79,62 +75,45 @@
     <h3>SEARCH RESULTS</H3>
     <div style="margin: 4%;">
 
-    <?php
-// Process the search if the form is submitted
-if (isset($_GET['search'])) {
-    $searchTerm = mysqli_real_escape_string($conn, $_GET['search']); // Escape user input
+        <?php
 
-    // List of table names to search
-    $tableNames = array("car_hire", "car_dealers", "transport_services", "garages_and_mechanics", "autoparts_shops", "cars_reviews", "news", "articles");
+        // Process the search if the form is submitted
+        if (isset($_GET['search'])) {
+            $searchTerm = mysqli_real_escape_string($conn, $_GET['search']); // Escape user input
 
-    foreach ($tableNames as $tableName) {
-        $query = "SELECT * FROM $tableName WHERE tags LIKE '%$searchTerm%'";
-        $result = mysqli_query($conn, $query);
+            // List of table names to search
+            $tableNames = array("car_hire", "car_dealers", "otherservices", "garages_and_mechanics", "autoparts_shops");
 
-        if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<h4><img src=" '. $row["logo"] . '"width="80px" style="border: solid; border-radius: 8px;"><br>';
-                echo "<b>Name: </b>" . $row['names']. "<br>";
-                echo "<b>Description: </b>" . $row['description'] . "<br>";
-                echo "<b>Location: </b>" . $row['location'] . "</h4><br>";
+            foreach ($tableNames as $tableName) {
+                $query = "SELECT * FROM $tableName WHERE tags LIKE '%$searchTerm%'";
+                $result = mysqli_query($conn, $query);
+            
+
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<div class="grid-container2"><div class="searchcard1">';
+                        echo '<img src="images/'. $row["logo"] . '" height="80px" style="border-style: solid; border-width: 1px; max-width: 100%;"></div>';
+                        echo '<div class="searchcard2"><b>' . $row['name']. "</b><br>";
+                        echo "<b>Description: </b>" . $row['description'] . "<br>";
+                        echo "<b>Location:</b>" . $row['location'] . "<br>". $row['contacts'] . "</div></div>";
+
+                    }
+                    
+                } else {
+                    echo "Error executing query: " . mysqli_error($conn);
+                }
             }
-        } else {
-            echo "Error executing query: " . mysqli_error($conn);
         }
-    }
-}
-
-
-
 ?>
+
+
     </div>
     <script src="js/main.js"></script>
 </body>
 
-<footer><br>
+<footer>
 
-    <div class="grid-container">
-        <div class="grid-item">
-            Follow Us On<br>
-            <div style="display:block">
-                <img src="images/icon/fbicon.jpg" width="40px">
-                <img src="images/icon/instaicon.jpg" width="40px">
-                <img src="images/icon/lnicon.jpg" width="40px">
-                <img src="images/icon/instaicon.jpg" width="40px">
-            </div>
-        </div>
-        <div class="grid-item">
-            About Us
-        </div>
-        <div class="grid-item">
-            Contacts Us
-        </div>
-        <div class="grid-item">
-            services
-        </div>
-        <div class="grid-item">
-            Copyrights
-        </div>
-    </div>
+    <?php include 'footer.php'; ?>
 </footer>
+
 </html>

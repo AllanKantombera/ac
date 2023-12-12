@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>afriCarsHub</title>
     <meta charset="UTF-8">
@@ -8,26 +7,25 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <header>
-
     <div class="topnav" id="myTopnav">
         <a href="index.php" class="active">
+            <l style="color:  #007bff; font-weight: bolder;">AFRICARS-HUB</l>
+        </a>
+        <a href="index.php">
             <l>HOME</l>
         </a>
-        <a href="carsreviews.php">
+        <a href="carreviews.php?id=1">
             <l>CAR REVIEWS</l>
         </a>
-        <a href="news.php">
-            <l>NEWS</l>
+        <a href="news&articles.php?id=1">
+            <l>NEWS/ARTICLES</l>
         </a>
-        <a href="articles.php">
-            <l>ARTICLES</l>
-        </a>
+        <a href="aboutus.php">
+            <l>ABOUT US</l>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars" style="color: black; font-size: 15px;">⥫</i>
             </a>
     </div>
-
-
     <div class="grid-container1">
         <div class="grid-item">
             <div class="linkbox">
@@ -41,27 +39,33 @@
                 <a href="cardealers.php">
                     <l>Car Dealers</l>
                 </a><br><br>
-                <a href="transportservices.php">
-                    <l>Transport Services</l>
-                </a><br><br>
                 <a href="carhires.php">
                     <l>Car Hires</l>
                 </a><br><br>
+                <a href="otherservices.php">
+                    <l>Other Services</l>
+                </a><br><br>
             </div>
-
-
         </div>
-
         <div class="grid-item">
-            <h2 style="color:white"> WE ARE, AfriCars_Hub.<br>
-                "Discover The Ultimate Car Service Network"<br>
-                Find different Car services providers near you, faster and easily.
-                </h2>
 
+<img src="images/logo2.png" height="30px" style="border-radius: 0px;">
+            <h2 style="color: black;">Welcome to <b>AfriCars Hub</b>, your All-In-One destination for car-ralated 
+                solutions in africa. "Find what you need <b>easily, faster, Near you!</b>"</h2>
+    
+            <form method="GET" action="srch.php" onsubmit="return validateForm();"
+                style="display: flex; margin-bottom: 5px; float: right;">
+                <div class="search-container">
+                    <input type="text" name="search" class="search-input" placeholder="search services/products">
+                    <button class="search-button" type="submit" value="Search">Search</button>
+                </div>
+            </form>
         </div>
+
     </div>
 
 </header>
+
 
 <body>
     <div class="contentbox">
@@ -96,35 +100,8 @@
     
         <script src="js/main.js"></script>
 </body>
-<footer><br>
-
-    <div class="grid-container">
-        <div class="grid-item">
-            Follow Us On<br>
-            <div style="display:block">
-                <img src="images/icon/fbicon.jpg" width="40px">
-                <img src="images/icon/instaicon.jpg" width="40px">
-                <img src="images/icon/lnicon.jpg" width="40px">
-                <img src="images/icon/instaicon.jpg" width="40px">
-            </div>
-        </div>
-        <div class="grid-item">
-            ABOUT US<br>
-            Welcome to Africars Hub, your premier destination for all things automotive in Africa.
-             We are your one-stop online platform dedicated to revolutionizing the way you discover,
-              connect with, and access a wide range of automotive services and products such as car dealers,
-               car hire services, mechanics & garages, auto-parts shops and more.(we are currently operating in Malawi only).
-        </div>
-        <div class="grid-item">
-            Contacts Us
-        </div>
-        <div class="grid-item">
-            services
-        </div>
-        <div class="grid-item">
-            Copyrights
-        </div>
-    </div>
+<footer>
+    <?php include 'footer.php'; ?>
 
 </footer>
 </html>

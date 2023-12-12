@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>afriCarsHub</title>
     <meta charset="UTF-8">
@@ -8,26 +7,25 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <header>
-
     <div class="topnav" id="myTopnav">
         <a href="index.php" class="active">
+            <l style="color:  #007bff; font-weight: bolder;">AFRICARS-HUB</l>
+        </a>
+        <a href="index.php">
             <l>HOME</l>
         </a>
-        <a href="carsreviews.php">
+        <a href="carreviews.php?id=1">
             <l>CAR REVIEWS</l>
         </a>
-        <a href="articles.php">
-            <l>ARTICLES</l>
+        <a href="news&articles.php?id=1">
+            <l>NEWS/ARTICLES</l>
         </a>
         <a href="aboutus.php">
             <l>ABOUT US</l>
-        </a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars" style="color: black; font-size: 15px;">⥫</i>
             </a>
     </div>
-
-
     <div class="grid-container1">
         <div class="grid-item">
             <div class="linkbox">
@@ -41,114 +39,66 @@
                 <a href="cardealers.php">
                     <l>Car Dealers</l>
                 </a><br><br>
-                <a href="transportservices.php">
-                    <l>Transport Services</l>
-                </a><br><br>
                 <a href="carhires.php">
                     <l>Car Hires</l>
                 </a><br><br>
+                <a href="otherservices.php">
+                    <l>Other Services</l>
+                </a><br><br>
             </div>
-
-
         </div>
-
         <div class="grid-item">
-            <h2 style="color:white"> WE ARE, AfriCars_Hub.<br>
-                "Discover The Ultimate Car Service Network"<br>
-                Find different Car services providers near you, faster and easily.
-                </h2>
 
+<img src="images/logo2.png" height="30px" style="border-radius: 0px;">
+            <h2 style="color: black;">Welcome to <b>AfriCars Hub</b>, your All-In-One destination for car-ralated 
+                solutions in africa. "Find what you need <b>easily, faster, Near you!</b>"</h2>
+    
+            <form method="GET" action="srch.php" onsubmit="return validateForm();"
+                style="display: flex; margin-bottom: 5px; float: right;">
+                <div class="search-container">
+                    <input type="text" name="search" class="search-input" placeholder="search services/products">
+                    <button class="search-button" type="submit" value="Search">Search</button>
+                </div>
+            </form>
         </div>
+
     </div>
-
- 
-    <form style="display: flex; margin-bottom: 5px;">
-        <input type="text" placeholder="Search Car Reviews..." name="search">
-        <button type="submit">Search</button>
-    </form>
-
 
 </header>
 
+
 <body>
-<h2><b>NEWS</b></h2>
-<div class="contentbox">
-    <img src="images/bmw2.png" width="300px">
-    <h4>
-        <b>Meet Mureza, Africa’s first black-owned OEM</b><br>
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        <i>read more</i>
-    </h4>
-    <img src="images/bmw2.png" width="300px">
-    <h4>
-        <b>Meet Mureza, Africa’s first black-owned OEM</b><br>
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        Registered in South Africa and Zimbabwe, Mureza Auto Company is Africa’s first black-owned car building
-        company.Sales of its Prim8 (say: “primate”)
-        <i>read more</i>
-    </h4>
-<br><br><br>
+<?php
+    require_once 'php/conn.php';
+    ?>
 
+<div style="margin: 4%;">
+    <h2>OTHER SERVICES</h2>
 
+            <?php
 
-    
-<h3>More News</h3>
-<li>bmw x1</li>
-<li>bmw x1</li>
-<li>bmw x1</li>
-<li>bmw x1</li>
+        $query = "SELECT * FROM otherservices";
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<div class="grid-container2"><div class="searchcard1">';
+                echo '<img src=" '. $row["logo"] . '" height="120px" style="border-style: solid; border-width: 1px; max-width: 100%;"></div>';
+                echo '<div class="searchcard2"><b>' . $row['name']. "</b><br>";
+                echo "<b>About Us: </b>" . $row['description'] . "<br><br>";
+                echo "<b>Contacts: </b><br>" . $row['contacts'] . "<br>";
+                echo "<b>Location</b><br>" . $row['location'] . "</div></div>";
+            }
+        } else {
+            echo "Error executing query: " . mysqli_error($conn);
+        }
+        ?>
 
 </div>
-
-
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
-
-<footer><br>
-
-    <div class="grid-container">
-        <div class="grid-item">
-            Follow Us On<br>
-            <div style="display:block">
-                <img src="images/icon/fbicon.jpg" width="40px">
-                <img src="images/icon/instaicon.jpg" width="40px">
-                <img src="images/icon/lnicon.jpg" width="40px">
-                <img src="images/icon/instaicon.jpg" width="40px">
-            </div>
-        </div>
-        <div class="grid-item">
-            ABOUT US<br>
-            Welcome to Africars Hub, your premier destination for all things automotive in Africa.
-             We are your one-stop online platform dedicated to revolutionizing the way you discover,
-              connect with, and access a wide range of automotive services and products such as car dealers,
-               car hire services, mechanics & garages, auto-parts shops and more.(we are currently operating in Malawi only).
-        </div>
-        <div class="grid-item">
-            Contacts Us
-        </div>
-        <div class="grid-item">
-            services
-        </div>
-        <div class="grid-item">
-            Copyrights
-        </div>
-    </div>
+<footer>
+    <?php include 'footer.php'; ?>
 
 </footer>
 </html>

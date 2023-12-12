@@ -67,38 +67,56 @@
 </header>
 
 
-
 <body>
-<?php
+   
+    <?php
     require_once 'php/conn.php';
     ?>
 
-<div style="margin: 4%;">
 
-<h2>GARAGES AND MECHANICS</h2>
+<h2><b>CAR REVIEWS</b></h2>
+<div class="contentbox">
 
-<?php
+    
+        <?php
+        //ads php
+        //ID select       
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        }
 
-        $query = "SELECT * FROM garages_and_mechanics";
-        $result = mysqli_query($conn, $query);
+        // SQL query to retrieve data by ID
+        $sql = "SELECT * FROM cars_reviews WHERE id = $id";
+        $result = $conn->query($sql);
 
-        if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="grid-container2"><div class="searchcard1">';
-                echo '<img src=" '. $row["logo"] . '" height="80px" style="border-style: solid; border-width: 1px; max-width: 100%;"></div>';
-                echo '<div class="searchcard2"><b>' . $row['name']. "</b><br>";
-                echo "<b>About Us: </b>" . $row['description'] . "<br>";
-                echo "<b>Details:</b>" . $row['location'] . "</div></div>";
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<h4><b>" .$row["car_model"]. "</b></h4>";
+                echo '<div style="text-align: center;"> <img src="images/reviews/' . $row['img1']. '" width="300px" style="margin: 3px;">';
+                echo '<img src="images/reviews/' . $row['img2']. '" width="300px" style="margin: 3px;">';
+                echo '<img src="images/reviews/' . $row['img3']. '" width="300px" style="margin: 3px;"></div>';
+                echo '<br><p style="padding: 30px;">'.$row["content"]. '</p><br>';
             }
         } else {
-            echo "Error executing query: " . mysqli_error($conn);
+            echo "null";
         }
-?>
+        ?>
+
+
+
+<h3>More reviews</h3>
+<li>bmw x1</li>
+<li>bmw x1</li>
+<li>bmw x1</li>
+<li>bmw x1</li>
+
 </div>
 
-    <script src="js/main.js"></script>
+
+<script src="js/main.js"></script>
 </body>
-<footer>
-    <?php include 'footer.php'; ?>
+
+<footer><?php include 'footer.php'; ?>
 </footer>
 </html>

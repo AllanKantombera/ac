@@ -8,13 +8,16 @@
 </head>
 <header>
     <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">
-            <l style="color:  #0097bd; font-weight: bolder;">AFRICARS-HUB</l>
+        <a href="index.php" class="active">
+            <l style="color:  #007bff; font-weight: bolder;">AFRICARS-HUB</l>
         </a>
-        <a href="carsreviews.php">
+        <a href="index.php">
+            <l>HOME</l>
+        </a>
+        <a href="carreviews.php?id=1">
             <l>CAR REVIEWS</l>
         </a>
-        <a href="articles.php">
+        <a href="news&articles.php?id=1">
             <l>NEWS/ARTICLES</l>
         </a>
         <a href="aboutus.php">
@@ -23,7 +26,6 @@
                 <i class="fa fa-bars" style="color: black; font-size: 15px;">⥫</i>
             </a>
     </div>
-
     <div class="grid-container1">
         <div class="grid-item">
             <div class="linkbox">
@@ -37,30 +39,29 @@
                 <a href="cardealers.php">
                     <l>Car Dealers</l>
                 </a><br><br>
-                <a href="transportservices.php">
-                    <l>Transport Services</l>
-                </a><br><br>
                 <a href="carhires.php">
                     <l>Car Hires</l>
                 </a><br><br>
-                <a href="carhires.php">
+                <a href="otherservices.php">
                     <l>Other Services</l>
                 </a><br><br>
             </div>
-
         </div>
-
         <div class="grid-item">
-            <h2> Welcome to Africars Hub.<br>
-                'The Ultimate Car Service Network'<br>
-                Find different Car services providers near you, faster and easily.
-            </h2><br><br>
-            <form method="GET" action="srch.php" onsubmit="return validateForm();" style="display: flex; margin-bottom: 5px; float: right;">
-                <input type="text" name="search" id="search" placeholder="Enter search term" style="padding: 4px;">
-                <input type="submit" value="Search" style="border-radius: 20px;">
+
+<img src="images/logo2.png" height="30px" style="border-radius: 0px;">
+            <h2 style="color: black;"><b>AfriCars Hub</b>, your All-In-One destination for car-ralated 
+                solutions in africa. "Find what you need <b>easily, faster, Near you!</b>"</h2>
+    
+            <form method="GET" action="srch.php" onsubmit="return validateForm();"
+                style="display: flex; margin-bottom: 5px; float: right;">
+                <div class="search-container">
+                    <input type="text" name="search" class="search-input" placeholder="search services/products">
+                    <button class="search-button" type="submit" value="Search">Search</button>
+                </div>
             </form>
         </div>
-     
+
     </div>
 
 </header>
@@ -69,22 +70,55 @@
     <?php
     require_once 'php/conn.php';
     ?>
-
     <div class="grid-container">
-        <div class="card1"><br>
-            <img src="images/AfriCarsHub logo2.png" width="150px"><br>
-
-            <h3>
-                Did You Know that you can just <i>Search</i> a car part and instantly find where you can buy it?<br>
-                Search different car services providers |Car Hires|Car Dealers|Auto-Parts Shops|Mechanics & Garages|etc|
-                Faster and Easy!
-            </h3>
+        <div class="card1">
+            <h4><b>CAR REVIEWS</b>
+                <?php
+                //ID select       
+                $id = 1;
+                // SQL query to retrieve data by ID
+                $sql = "SELECT * FROM cars_reviews WHERE id = $id";
+                $result = $conn->query($sql);
+    
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
+                        echo $row["car_model"] . "<br>" .$row["intro"]. '<a href="' . $row['fullreview_url'] . '"><i>  full review</i></a> <br>';
+                    }
+                } else {
+                    echo "null";
+                }
+                ?>
+            </h4>
         </div>
-  
-       
+        <div class="card1">
+            <h4><b>CAR REVIEWS</b>
+                <?php
+                //ID select       
+                $id = 2;
+    
+                // SQL query to retrieve data by ID
+                $sql = "SELECT * FROM cars_reviews WHERE id = $id";
+                $result = $conn->query($sql);
+    
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo '<img src="images/reviews/' . $row['img1'] . '" width="80%"><br>';
+                        echo $row["car_model"] . "<br>" .$row["intro"]. '<a href="' . $row['fullreview_url'] . '"><i>  full review</i></a> <br>';
+                    }
+                } else {
+                    echo "null";
+                }
+                ?>
+            </h4>
+        </div>
+
+
         <div class="card1">
 
-        <?php
+            <?php
             //ads php
             //ID select       
             $id = 1;
@@ -96,41 +130,109 @@
             if ($result->num_rows > 0) {
                 // Output data of each row
                 while($row = $result->fetch_assoc()) {
-                    echo "" . $row["imageurl"]. "<br>" . $row["ad_url"]. "<br>";
+                   echo '<a href="' . $row["ad_url"] . '"><img src="images/ads/'. $row["image"]. '" width="97%"></a>';
+                }
+            } else {
+                echo "0 results";
+            }
+            ?>
+        </div>
+
+
+        <div class="card1"><br>
+            <h4>
+            <img src="images/AfriCarsHub logo2.png" width="150px"><br>
+                Did You Know that you can just <i>Search</i> a car part and instantly find where you can buy it?<br>
+                Search different car services providers |Car Hires|Car
+            </h4>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="grid-container">
+        <div class="card1">
+            <h4><b>CAR REVIEWS</b>
+            
+            <?php
+        
+            //ID select       
+            $id = 1;
+
+            // SQL query to retrieve data by ID
+            $sql = "SELECT * FROM cars_reviews WHERE id = $id";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
+                    echo $row["car_model"] . "<br>" .$row["intro"]. '<a href="' . $row['fullreview_url'] . '"><i>  full review</i></a> <br>';
                 }
             } else {
                 echo "null";
             }
             ?>
+    </h4>
         </div>
 
-        <div class="card1">
-            <h4><b>CAR REVIEWS</b>
 
-                <?php
-                //ads php
-                //ID select       
-                $id = 1;
-    
-                // SQL query to retrieve data by ID
-                $sql = "SELECT * FROM cars_reviews WHERE id = $id";
-                $result = $conn->query($sql);
-    
-                if ($result->num_rows > 0) {
-                    // Output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
-                        echo $row["car_model"] . "<br>" .$row["intro"]. "<br>";
-                    }
-                } else {
-                    echo "null";
+        <div class="card1">
+
+            <?php
+            //ads php
+            //ID select       
+            $id = 2;
+
+            // SQL query to retrieve data by ID
+            $sql = "SELECT * FROM ads WHERE id = $id";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                   echo '<a href="' . $row["ad_url"] . '"><img src="images/ads/'. $row["image"]. '" width="97%"></a>';
                 }
-                ?>
+            } else {
+                echo "0 results";
+            }
+            ?>
         </div>
+       
+
+
+
 
         <div class="card1">
+            <h4><b>NEWS/ARTICLES</b>
+            
+            <?php
+            //ads php
+            //ID select       
+            $id = 2;
 
-        <?php
+            // SQL query to retrieve data by ID
+            $sql = "SELECT * FROM cars_reviews WHERE id = $id";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
+                    echo $row["car_model"] . "<br>" .$row["intro"]. '<a href="' . $row['fullreview_url'] . '"><i>  full review</i></a> <br>';
+                }
+            } else {
+                echo "null";
+            }
+            ?>
+        </h4>
+        </div>
+
+
+        <div class="card1">
+            <?php
             //ads php
             //ID select       
             $id = 3;
@@ -142,107 +244,17 @@
             if ($result->num_rows > 0) {
                 // Output data of each row
                 while($row = $result->fetch_assoc()) {
-                    echo "" . $row["imageurl"]. "<br>" . $row["ad_url"]. "<br>";
+                   echo '<a href="' . $row["ad_url"] . '"><img src="images/ads/'. $row["image"]. '" width="97%"></a>';
                 }
             } else {
                 echo "0 results";
             }
             ?>
-
         </div>
-    </div>
-    <br>
-    <div class="grid-container">
-        <div class="card1">
-            <?php
-            //ads php
-            //ID select       
-            $id = 1;
-
-            // SQL query to retrieve data by ID
-            $sql = "SELECT * FROM cars_reviews WHERE id = $id";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                // Output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
-                    echo $row["car_model"] . "<br>" .$row["intro"]. "<br>";
-                }
-            } else {
-                echo "null";
-            }
-            ?>
-
-        </div>
-        <div class="card1">
-            <h4><b>CAR REVIEWS</b>
-                <?php
-                //ads php
-                //ID select       
-                $id = 2;
-    
-                // SQL query to retrieve data by ID
-                $sql = "SELECT * FROM cars_reviews WHERE id = $id";
-                $result = $conn->query($sql);
-    
-                if ($result->num_rows > 0) {
-                    // Output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
-                        echo $row["car_model"] . "<br>" .$row["intro"]. "<br>";
-                    }
-                } else {
-                    echo "null";
-                }
-                ?>
-        </div>
-        <div class="card1">
-
-
-            <?php
-            //ads php
-            //ID select       
-            $id = 1;
-
-            // SQL query to retrieve data by ID
-            $sql = "SELECT * FROM ads WHERE id = $id";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                // Output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo "" . $row["imageurl"]. "<br>" . $row["ad_url"]. "<br>";
-                }
-            } else {
-                echo "null";
-            }
-            ?>
         </div>
 
-        <div class="card1">
-            <h3>NEWS/ARTICLES</h3>
-            <?php
-            //ads php
-            //ID select       
-            $id = 1;
 
-            // SQL query to retrieve data by ID
-            $sql = "SELECT * FROM cars_reviews WHERE id = $id";
-            $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-                // Output data of each row
-                while($row = $result->fetch_assoc()) {
-                    echo '<img src="images/reviews/' . $row['img1']. '" width="80%"><br>';
-                    echo $row["car_model"] . "<br>" .$row["intro"]. "<br>";
-                }
-            } else {
-                echo "null";
-            }
-            ?>
-            </div>
-  
     </div>
 
 
@@ -250,27 +262,11 @@
 </body>
 
 
-
-
-
-
-
-
-
 <footer>
 
     <?php include 'footer.php'; ?>
 </footer>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 
